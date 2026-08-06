@@ -71,3 +71,7 @@ plt.title("Customer Segments")
 plt.show()
 
 print(customer_data.groupby("Cluster").mean())
+
+customer_data.to_csv("Customer_Segments.csv")
+
+print("Customer segmentation completed successfully.")
