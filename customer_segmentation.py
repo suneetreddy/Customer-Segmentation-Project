@@ -53,3 +53,21 @@ kmeans=KMeans(
 customer_data["Cluster"]=kmeans.fit_predict(scaled_data)
 
 print(customer_data.head())
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(8,6))
+
+plt.scatter(
+    customer_data["Total Sales"],
+    customer_data["Total Profit"],
+    c=customer_data["Cluster"]
+)
+
+plt.xlabel("Total Sales")
+plt.ylabel("Total Profit")
+plt.title("Customer Segments")
+
+plt.show()
+
+print(customer_data.groupby("Cluster").mean())
