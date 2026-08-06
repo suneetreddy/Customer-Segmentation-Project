@@ -36,3 +36,20 @@ customer_data.columns=[
 ]
 
 print(customer_data.head())
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+scaler=StandardScaler()
+
+scaled_data=scaler.fit_transform(customer_data)
+
+kmeans=KMeans(
+    n_clusters=3,
+    random_state=42,
+    n_init=10
+)
+
+customer_data["Cluster"]=kmeans.fit_predict(scaled_data)
+
+print(customer_data.head())
